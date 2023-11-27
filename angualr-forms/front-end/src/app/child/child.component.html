@@ -1,0 +1,55 @@
+<h3>Passing data between the components</h3>
+
+<span>To recieve the data from parent component to child componet we use @input directives</span><br>
+<span>Viceversa we use @output directives</span><br>
+<span>Child will send events to parent to indicate something</span><br><br>
+
+<input type="text" #myInput />
+<button (click)="updateMessage(myInput.value)">Send</button>
+<br>
+<br>
+<span>Angular pipes : Which transforma the data only in the view but not to change the value of property in the class </span><br>
+<br>
+<span>lowercase : {{ name | lowercase }}</span><br>
+<br>
+<span>uppercase : {{ name | uppercase }}</span><br>
+<br>
+<span>titlecase : {{ name | titlecase }}</span><br>
+<br>
+<span>slicing : {{ desc}}</span><br>
+<br>
+<span>slice :3 : {{ desc | slice : 3 }}</span><br>
+<br>
+<span>slice:3 :15 : {{ desc | slice: 3: 15 }}</span><br>
+<br>
+<span>Json : {{ obj | json }}</span><br>
+<br>
+<span>Num 5.678 : {{ num | number:'1.2-3' }}</span><br>
+<br>
+<span>Num 5.678 : {{ num | number:'3.4-5' }}</span><br>
+<br>
+<span>Num 5.678 : {{ num | number:'5.2-3' }}</span><br>
+<br>
+<span>percent 0.25 : {{ 0.25 |percent }}</span><br>
+<br>
+<span>currency 0.25 : {{ 0.25 |currency }}</span><br>
+<br>
+<span>currency GBP 0.25 : {{ 0.25 |currency:'GBP' }}</span><br>
+<br>
+<span>currency GBP CODE 0.25 : {{ 0.25 |currency:'GBP':'code' }}</span><br>
+<br>
+<span>currency EUR CODE 0.25 : {{ 0.25 |currency:'EUR':'code' }}</span><br>
+<br>
+<span>Date : {{ today}}</span><br>
+<br>
+<span>Date : {{ today |date:'short' }}</span><br>
+<br>
+<span>Date : {{ today |date:'shortDate' }}</span><br>
+<br>
+<span>Date : {{ today |date:'shortTime' }}</span><br>
+<br>
+<span>Date : {{ today |date:'long' }}</span><br>
+<br>
+<span>Date : {{ today |date:'mediumDate' }}</span><br>
+<br>
+<span>Date : {{ today |date:'MMM dd YYYY hh:mm:ss' }}</span><br>

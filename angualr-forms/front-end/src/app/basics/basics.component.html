@@ -1,0 +1,105 @@
+<h1> Basics </h1>
+<span> Welcome to {{title}}</span>&nbsp;&nbsp;(interpolation) - Data binding -> class to template<br>
+<br>
+<span> {{27 + 58 }}</span>&nbsp;&nbsp;(interpolation) - expression<br>
+<br>
+<span> {{'win' + 'ston' }}</span>&nbsp;&nbsp;(interpolation) - expression<br>
+<br>
+<span> length title - {{title.length }}, Uppercase - {{title| uppercase}}</span><br>
+<br>
+<span> function - {{greetUser() }}</span><br>
+<br>
+<input type="text" bind-disabled="isDisabled" [id]="myValue" value="Winston" />
+
+<br><br>
+<span>Class Binding</span>(Used for conditional styling )<br>
+
+<h2 [ngClass]="'text-danger'">Code evalution</h2>
+<h2 [ngClass]="messageClass">Code evalution</h2>
+
+<br><br>
+<span>Style Binding</span>(Used for conditional styling )<br>
+{{hasError}}
+<h2 [ngStyle]="{'font-style': 'italic'}">Code evalution</h2>
+<h2 [ngStyle]="{'color': hasError ? 'green':'blue'}">Code evalution</h2>
+<h2 [ngStyle]="messageStyle">Code evalution</h2>
+
+<br><br>
+<span>Event Binding</span>(Binding from Template to Class )<br>
+
+<input type="text" #myInput />
+<button (click)="onClick(myInput.value)"> Greet</button>
+<br>
+<h1>{{greet}}</h1>
+
+<br><br>
+<span>Two way binding - (when we are using form input then modal and view should be in sync )</span><br>
+<span>So we use ngModel for Two way Binding </span><br>
+<span>[]-> used for property Binding i.e class to template</span><br>
+<span>()-> used for event Binding i.e template to class</span>
+<br><br>
+<input [(ngModel)]="greet" />
+<br>
+
+<h3>Structural directives </h3>
+<span> Used to add or remove the HTML Element</span>
+<span>There are 3 directives </span>
+<ul>
+    <li>*ngIf</li>
+    <li>*ngSwitch</li>
+    <li>*ngFor</li>
+</ul>
+<br>
+<span>Note: In ngIf element is not visible in the DOM but display:none element will visible in DOM but Hidden</span><br>
+<br><span> use of if else block</span><br>
+
+<h2 *ngIf="isShowFistName; else elseBlock"> Winston </h2>
+<button (click)="isShowFistName = !isShowFistName">Click</button>
+<br>
+
+<span> use of if then else block</span><br>
+
+<h2 *ngIf="isShowFistName; then thenBlock; else elseBlock"> Winston </h2>
+
+<ng-template #elseBlock>
+    <h2>Roy</h2>
+</ng-template>
+
+<ng-template #thenBlock>
+    <h2>Winston Roy</h2>
+</ng-template>
+<br>
+<span> ng-template is a container for other element that the ngIf directive use properly to add or remove HTML elemnt
+    from DOM</span><br>
+<br>
+<span>Use of ngSwitch</span><br><br>
+<div>
+    <button (click)="selectedColor = 'Red'">Red Block</button> &nbsp;&nbsp;
+    <button (click)="selectedColor = 'Black'">Black Block</button>&nbsp;&nbsp;
+    <button (click)="selectedColor = 'Blue'">Blue Block</button>&nbsp;&nbsp;
+</div>
+<br>
+
+<div [ngSwitch]="selectedColor">
+    <div *ngSwitchCase="'Red'">
+        <span [ngStyle]="{color:selectedColor}">Winston Roy Pashan</span>
+    </div>
+    <div *ngSwitchCase="'Black'">
+        <span [ngStyle]="{color:selectedColor}">Winston Roy Pashan</span>
+    </div>
+    <div *ngSwitchCase="'Blue'">
+        <span [ngStyle]="{color:selectedColor}">Winston Roy Pashan</span>
+    </div>
+</div>
+<br>
+<span>Use of ngFor</span><br>
+<div
+    *ngFor="let item of names;index as i;first as isFirst;last as isLast;odd as isOdd;even as isEven; count as TotalCount;">
+    <h4>
+        <span *ngIf="isFirst">First &nbsp;</span>
+        <span *ngIf="isLast">last&nbsp;Total Items {{TotalCount}}&nbsp;</span>
+        <span *ngIf="isOdd">Odd&nbsp;</span>
+        <span *ngIf="isEven">Even&nbsp;</span>
+        {{i}}/{{names.length}}.&nbsp;{{item}}
+    </h4>
+</div>

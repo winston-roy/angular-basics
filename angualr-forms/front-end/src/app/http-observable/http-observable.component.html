@@ -1,0 +1,18 @@
+<span>Observable is a sequence of items that arrives asynchronously over the time</span><br>
+<span>HTTP call -> Single item</span><br>
+<span>Single item -> HTTP Response</span><br><br>
+<span>Employee data: <br>{{employeeData | json }}</span><br><br>
+<table class="table-bordered">
+    <tr>
+        <th>Fisrt Name</th>
+        <th>Second Name</th>
+        <th>Sur name</th>
+        <th>Percentage</th>
+    </tr>
+    <tbody *ngFor="let Employee of employeeData;let i= index;">
+        <td>{{Employee.first}}</td>
+        <td>{{Employee.second}}</td>
+        <td>{{Employee.sur_name}}</td>
+        <td>{{Employee.perc | percent}}</td>
+    </tbody>
+</table>
